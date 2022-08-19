@@ -55,25 +55,31 @@
 
 ////// VARIABLES ////////
 
-const URL = 'https://www.omdbapi.com/?apikey=3b6a1a6d&t=the+thief+and+the+cobbler'
+const URL = 'https://www.omdbapi.com/?apikey=3b6a1a6d&t='
 
 ////// CACHED ELEMENTS / ELEMENTS REFERENCED ////////
 
 const $title = $('#title')
 const $year = $('#year')
 const $rated = $('#rated')
+const $form = $('form')
+const $input = $('input[type="text"]')
 
 ////// EVENT LISTENERS ///////
 
+$form.on("submit" , handleGetData )
 
+    
 
 
 
 ////// FUNCTION ///////
 
-function handleGetData () {
+function handleGetData (event) {
+    let userInput = $input.val()
 
-    $.ajax(URL).then(function(data){
+    event.preventDefault()
+    $.ajax(URL + userInput).then(function(data){
         console.log('movie is ready')
         console.log(data)
         $title.text(data.Title)
