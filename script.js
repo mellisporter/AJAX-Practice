@@ -55,7 +55,7 @@
 
 ////// VARIABLES ////////
 
-const URL = 'https://www.omdbapi.com/?apikey=3b6a1a6d&t=frozen'
+const URL = 'https://www.omdbapi.com/?apikey=3b6a1a6d&t=the+thief+and+the+cobbler'
 
 ////// CACHED ELEMENTS / ELEMENTS REFERENCED ////////
 
