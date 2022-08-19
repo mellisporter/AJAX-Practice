@@ -49,14 +49,41 @@
 
 // console.log($.ajax('https://www.omdbapi.com/?apikey=3b6a1a6d&t=titan'))
 
-const URL = 'https://www.omdbapi.com/?apikey=3b6a1a6d&t=titan'
+
 
 // storing the url as a variable saves us a lot of time later
 
-$.ajax(URL).then(function(data){
-    console.log('movie is ready')
-    console.log(data)
-},function(error){
-    console.log('we broke it!')
-})
+////// VARIABLES ////////
+
+const URL = 'https://www.omdbapi.com/?apikey=3b6a1a6d&t=frozen'
+
+////// CACHED ELEMENTS / ELEMENTS REFERENCED ////////
+
+const $title = $('#title')
+const $year = $('#year')
+const $rated = $('#rated')
+
+////// EVENT LISTENERS ///////
+
+
+
+
+
+////// FUNCTION ///////
+
+function handleGetData () {
+
+    $.ajax(URL).then(function(data){
+        console.log('movie is ready')
+        console.log(data)
+        $title.text(data.Title)
+        $year.text(data.Year)
+        $rated.text(data.Rated)
+        $('main').append(`<img src="${data.Poster}" alt="${data.Title}"/>`)
+    },function(error){
+        console.log('we broke it!')
+    })
+    
+}
+
 
